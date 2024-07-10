@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="dashboard.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo" style="height: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bom.html">BILL OF MATERIALS (BOM)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="view-stock.html">View Stock or ADD stock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="new-products.html">New Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="checkoutpage_copy.html">Checkout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="order-information.html">Order Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="suppliers.html">Suppliers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="purchase-orders.html">Purchase Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="order-summary.html">Order Summary</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Dashboard</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Inventory Items</h5>
+                        <p class="card-text" id="totalInventory">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Stock Value</h5>
+                        <p class="card-text" id="totalStockValue">₹0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Orders Processed</h5>
+                        <p class="card-text" id="ordersProcessed">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Most Used Components</h5>
+                        <p class="card-text" id="mostUsedComponents"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <canvas id="inventoryStatusChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <canvas id="monthlyStockChangesChart"></canvas>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <canvas id="componentUsageChart"></canvas>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-outline-primary" id="generatePDF"><i class="fas fa-file-pdf"></i> Download PDF Report</button>
+            <button class="btn btn-outline-success" id="generateExcel"><i class="fas fa-file-excel"></i> Download Excel Report</button>
+        </div>
+    </div>
+</body>
+</html>

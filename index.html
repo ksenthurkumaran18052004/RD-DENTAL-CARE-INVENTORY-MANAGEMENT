@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script> <!-- Add this line to include the JavaScript file -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo" style="height: 40px;">
+        </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="bom.html">BILL OF MATERIALS (BOM)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="view-stock.html">View Stock or ADD stock</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="new-products.html">New Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="checkoutpage_copy.html">Checkout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="order-information.html">Order Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="suppliers.html">Suppliers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="purchase-orders.html">Purchase Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="order-summary.html">Order Summary</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <div class="container">
+        <h1>Welcome to RD DENTAL CARE Inventory Management System</h1>
+
+        <section class="intro-section">
+            <p>
+                This system helps you manage your inventory efficiently. You can track stock levels, manage suppliers, handle purchase orders, and much more.
+            </p>
+        </section>
+
+        <section class="quick-links-section">
+            <h2>Quick Links</h2>
+            <div class="quick-links">
+                <a href="dashboard.html" class="quick-link">Dashboard</a>
+                <a href="view-stock.html" class="quick-link">View Stock</a>
+                <a href="suppliers.html" class="quick-link">Suppliers</a>
+                <a href="purchase-orders.html" class="quick-link">Purchase Orders</a>
+            </div>
+        </section>
+
+        <section class="recent-activity-section">
+            <h2>Recent Activity</h2>
+            <div id="recentActivity"></div>
+        </section>
+
+        <section class="statistics-section">
+            <h2>Statistics</h2>
+            <div id="statistics"></div>
+        </section>
+    </div>
+</body>
+</html>

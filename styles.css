@@ -1,0 +1,234 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f7; 
+    color: #1d1d1f; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.container {
+    max-width: 1600px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+}
+
+h1, h2 {
+    text-align: center;
+    color: #1d1d1f; 
+    margin-bottom: 30px;
+    font-weight: 400; 
+}
+
+.form-section, .form, .table-section, .table-section-2, .table-section-3 {
+    margin-bottom: 30px;
+    padding: 15px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #6e6e73; 
+}
+
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #d2d2d7;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #1d1d1f;
+}
+
+button {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 20px;
+    width: auto; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    background-color: #0071e3; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    background-color: #005bb5; 
+    transform: translateY(-2px); 
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #d2d2d7;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+th {
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.form.hidden {
+    display: none;
+}
+
+.form {
+    display: none;
+}
+
+.bom-form {
+    display: none;
+}
+
+.search-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 20px 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-section label {
+    margin-right: 5px;
+    text-align: right;
+}
+
+.search-section button {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 20px;
+    width: auto; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+}
+.gotocheckoutpage-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gotocheckoutpage-section button {
+    background-color: #1d1d1f;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.gotocheckoutpage-section button:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+.highlight {
+    background-color: yellow; /* Or any color you prefer */
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.quick-links-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.quick-link {
+    display: block;
+    padding: 20px 30px;
+    background-color: #0071e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.quick-link:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+}
+
+.recent-activity-section, .statistics-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#recentActivity, #statistics {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.activity-item, .statistic-item {
+    background-color: #f5f5f7;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+}
+
+.search-section {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .search-section {
+        grid-template-columns: 1fr;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        display: block;
+        margin: 0 auto;
+        width: auto; 
+    }
+}

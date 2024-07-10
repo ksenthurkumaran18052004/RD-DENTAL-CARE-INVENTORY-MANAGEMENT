@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Products</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="new-products.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo" style="height: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bom.html">BILL OF MATERIALS (BOM)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="view-stock.html">View Stock or ADD stock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="new-products.html">BOM Making</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="checkoutpage_copy.html">Checkout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="order-information.html">Order Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="suppliers.html">Suppliers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="purchase-orders.html">Purchase Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="order-summary.html">Order Summary</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>BOM MAKING</h1>
+        <div class="form-section">
+            <h2>Add New Product to the BOM</h2>
+            <label for="componentType">Component Type:</label>
+            <select id="componentType" onchange="updateAttributes()">
+                <option value="">Select Component Type</option>
+                <option value="Resistor">Resistor</option>
+                <option value="Capacitor">Capacitor</option>
+                <option value="Inductor">Inductor</option>
+                <option value="Diode">Diode</option>
+                <option value="Transistor">Transistor</option>
+                <option value="Mosfet">Mosfet</option>
+                <option value="UFL">UFL</option>
+                <option value="Crystal">Crystal</option>
+                <option value="Regulator">Regulator</option>
+                <option value="Modem">Modem</option>
+                <option value="Pressure_Sensor">Pressure Sensor</option>
+                <option value="RTC">RTC</option>
+                <option value="ESP">ESP</option>
+                <option value="RS485">RS485</option>
+                <option value="Sim_Slot">Sim Slot</option>
+                <option value="Connector">Connector</option>
+                <option value="Enclosure">Enclosure</option>
+                <option value="UFL_Cable">UFL Cable</option>
+            </select>
+            <div id="attributeDropdowns"></div>
+            <label for="quantity">Enter Quantity:</label>
+            <input type="number" id="quantity" min="1" value="1">
+            <button onclick="addNewProduct()">Add to Stock</button>
+        </div>
+
+        <div class="table-section">
+            <h2>Product Tables</h2>
+            <div id="resistorTableSection" style="display:none;">
+                <h3>Resistors</h3>
+                <table id="resistorTable">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Resistance Value</th>
+                            <th>Power Rating</th>
+                            <th>Voltage Rating</th>
+                            <th>Temperature Coefficient</th>
+                            <th>Tolerance</th>
+                            <th>Package Type</th>
+                            <th>Label Type</th>
+                            <th>Location Stored</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="capacitorTableSection" style="display:none;">
+                <h3>Capacitors</h3>
+                <table id="capacitorTable">
+                    <thead>
+                        <tr>
+                            <th>Capacitance Value</th>
+                            <th>Voltage Rating</th>
+                            <th>Tolerance</th>
+                            <th>Dielectric Type</th>
+                            <th>Package Type</th>
+                            <th>Label type(C1/C2/...)</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="inductorTableSection" style="display:none;">
+                <h3>Inductor</h3>
+                <table id="inductorTable">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Inductance Value</th>
+                            <th>Current Rating</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="diodeTableSection" style="display:none;">
+                <h3>Diodes</h3>
+                <table id="diodeTable">
+                    <thead>
+                        <tr>
+                            <th>Diode Value</th>
+                            <th>Part Number</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="transistorTableSection" style="display:none;">
+                <h3>Transistors</h3>
+                <table id="transistorTable">
+                    <thead>
+                        <tr>
+                            <th>Part Number:</th>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="mosfetTableSection" style="display:none;">
+                <h3>Mosfets</h3>
+                <table id="mosfetTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="uflTableSection" style="display:none;">
+                <h3>UFL</h3>
+                <table id="uflTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="crystalTableSection" style="display:none;">
+                <h3>Crystals</h3>
+                <table id="crystalTable">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Frequency</th>
+                            <th>Tolerance</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="regulatorTableSection" style="display:none;">
+                <h3>Regulators</h3>
+                <table id="regulatorTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="modemTableSection" style="display:none;">
+                <h3>Modems</h3>
+                <table id="modemTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="pressureSensorTableSection" style="display:none;">
+                <h3>Pressure_Sensors</h3>
+                <table id="pressureSensorTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="rtcTableSection" style="display:none;">
+                <h3>RTCs</h3>
+                <table id="rtcTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="espTableSection" style="display:none;">
+                <h3>ESPs</h3>
+                <table id="espTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="rs485TableSection" style="display:none;">
+                <h3>RS485</h3>
+                <table id="rs485Table">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="simSlotTableSection" style="display:none;">
+                <h3>Sim Slots</h3>
+                <table id="simSlotTable">
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="connectorTableSection" style="display:none;">
+                <h3>Connectors</h3>
+                <table id="connectorTable">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Part Number</th>
+                            <th>Pin Count</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="enclosureTableSection" style="display:none;">
+                <h3>Enclosures</h3>
+                <table id="enclosureTable">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Part Number</th>
+                            <th>Dimensions</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="uflCableTableSection" style="display:none;">
+                <h3>UFL Cables</h3>
+                <table id="uflCableTable">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Part Number</th>
+                            <th>Length</th>
+                            <th>Package Type</th>
+                            <th>Location Stored:</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <!-- Add similar sections for other components here -->
+        </div>
+
+        <div class="gotocheckoutpage-section">
+            <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+</body>
+</html>
